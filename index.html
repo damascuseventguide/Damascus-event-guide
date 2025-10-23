@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>city events site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <!-- يمين: الشعار والعنوان -->
+          <div class="d-flex align-items-center gap-2">
+            <img
+              src="assets/img/logo.jpg"
+              alt="شعار فعاليات المدينة"
+              style="height: 35px; margin-left: 15px"
+            />
+            <a class="navbar-brand" href="index.html">دليل فعاليات دمشق</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="index.html">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="events.html">الأحداث</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">عن الدليل</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">اتصل بنا</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- يسار: الأعلام لتغيير اللغة وزر Dark Mode -->
+          <div class="d-flex align-items-center gap-2">
+            <button id="langToggle"
+  class="btn p-0"
+  title="تبديل اللغة"
+  style="background:none;border:none;cursor:pointer;line-height:0"
+  onclick="(function(){
+    var cur  = (localStorage.getItem('selectedLang') || document.documentElement.lang || 'ar');
+    var next = (cur==='ar') ? 'en' : 'ar';
+
+    if (window.setLanguage) { try { window.setLanguage(next); } catch(e) { localStorage.setItem('selectedLang', next); } }
+    else { try { localStorage.setItem('selectedLang', next); } catch(e) {} }
+
+    document.documentElement.lang = next;
+    document.documentElement.dir  = (next==='ar') ? 'rtl' : 'ltr';
+  })()">
+  <img class="flag flag-en" src="assets/img/Flag_of_the_United_States.png" alt="English">
+  <img class="flag flag-ar" src="assets/img/Flag_of_syria.png"           alt="العربية">
+</button>
+
+            <!-- زر Dark Mode -->
+            <button id="darkModeToggle" class="dark-mode-btn" title="تبديل الوضع الداكن">
+              <span class="toggle-icon">🌙</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 30px;
+        background-color: #f8f9fa;
+        flex-wrap: wrap;
+      "
+    >
+      <!-- نص الهيرو -->
+      <div style="flex: 1; max-width: 50%; text-align: right; direction: rtl">
+        <h2 class="hero-title" style="font-size: 36px; color: #333; margin-bottom: 20px">
+          عِش أجواء مدينتك مع أجمل الفعاليات القادمة
+        </h2>
+        <p class="hero-text" style="font-size: 20px; color: #555; margin-bottom: 30px">
+          فعالياتنا تجمع بين الفن، الرياضة، والثقافة... لا تفوّت الفرصة!
+        </p>
+        <a
+          href="events.html"
+          class="hero-button"
+          style="
+            background-color: #2045e7;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 18px;
+          "
+        >
+          استعرض جميع الفعاليات
+        </a>
+      </div>
+
+      <!-- صورة الهيرو -->
+      <div style="flex: 1; max-width: 45%; text-align: left">
+        <img
+          src="assets/img/events-banner.webp"
+          alt="فعاليات المدينة"
+          style="
+            width: 100%;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+          "
+        />
+      </div>
+    </section>
+
+    <!-- حدث هذا الأسبوع -->
+    <section class="container mt-5">
+      <h3 class="mb-3 this-week-title">حدث هذا الأسبوع</h3>
+      <div id="thisWeek">
+        <div class="alert alert-light border d-flex align-items-center gap-2">
+          <div class="spinner-border spinner-border-sm"></div>
+          <span>جاري تحميل الحدث...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- أحداث قادمة -->
+    <section class="container mt-5">
+      <h3 class="mb-3 upcoming-title">أحداث قادمة</h3>
+      <div class="row g-3" id="upcoming">
+        <div class="col-12">
+          <div class="alert alert-light border d-flex align-items-center gap-2">
+            <div class="spinner-border spinner-border-sm"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- تصنيفات الفعاليات -->
+    <section class="container mt-5">
+      <h3 class="categories-title">تصنيفات الفعاليات</h3>
+      <div class="d-flex flex-wrap gap-2 mt-3 mb-3" id="categoryButtons">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm category-btn"
+          data-category="all"
+        >
+          الكل
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm category-btn"
+          data-category="ثقافة"
+        >
+          ثقافة
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger btn-sm category-btn"
+          data-category="موسيقى"
+        >
+          موسيقى
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-success btn-sm category-btn"
+          data-category="تعليم"
+        >
+          تعليم
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-sm category-btn"
+          data-category="معارض"
+        >
+          معارض
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-info btn-sm category-btn"
+          data-category="سينما"
+        >
+          سينما
+        </button>
+      </div>
+
+      <div class="row g-3" id="categories">
+        <div class="col-12">
+          <div class="alert alert-light border d-flex align-items-center gap-2">
+            <div class="spinner-border spinner-border-sm"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container bg-dark text-white pt-4 mt-5 mb-4 px-4">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          gap: 24px;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="text-align: right; min-width: 240px; flex: 1">
+          <h3 class="footer-contact-title" style="margin-bottom: 10px">تواصل معنا</h3>
+          <p class="footer-phone" style="margin: 5px 0">رقم التواصل: 0123456789</p>
+          <p class="footer-email" style="margin: 5px 0">البريد الإلكتروني: info@cityevents.com</p>
+        </div>
+
+        <div style="text-align: left; min-width: 240px; flex: 1">
+          <p style="margin: 5px 0">
+            <a
+              href="https://facebook.com/damascus.events"
+              target="_blank"
+              style="color: rgb(124, 182, 209); text-decoration: none"
+            >
+              facebook.com/damascus.events
+            </a>
+            <img
+              src="assets/img/facebook.svg"
+              alt="Facebook"
+              style="height: 20px; vertical-align: middle; margin-left: 10px"
+            />
+          </p>
+          <p style="margin: 5px 0">
+            <a
+              href="https://instagram.com/damascus.events"
+              target="_blank"
+              style="color: rgb(124, 182, 209); text-decoration: none"
+            >
+              instagram.com/damascus.events
+            </a>
+            <img
+              src="assets/img/instagram.svg"
+              alt="Instagram"
+              style="height: 20px; vertical-align: middle; margin-left: 10px"
+            />
+          </p>
+          <p style="margin: 5px 0">
+            <a
+              href="https://twitter.com/damascus_events"
+              target="_blank"
+              style="color: rgb(124, 182, 209); text-decoration: none"
+            >
+              twitter.com/damascus_events
+            </a>
+            <img
+              src="assets/img/twitter.svg"
+              alt="X/Twitter"
+              style="height: 20px; vertical-align: middle; margin-left: 10px"
+            />
+          </p>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #aaa; margin: 20px 0"></div>
+
+      <p class="footer-rights text-center text-light mt-2 mb-1">جميع الحقوق محفوظة © 2025</p>
+
+      <p class="footer-team text-center text-white mb-0" dir="rtl">
+        <span class="fw-semibold">فريق العمل:</span>
+        <span>
+          <bdi>thaeer_284626 - C2</bdi> — ثائر غانم /
+          <bdi>lujain_285179 - C4</bdi> — لجين الفرا
+        </span>
+        <br />
+        <span>
+          <bdi>hanna_299408 - C2</bdi> — حنا مسوح /
+          <bdi>tajeddin_296272 - C5</bdi> — تاج الدين معتوق /
+          <bdi>fatemah_313846 - C2</bdi> — فاطمة الريس
+        </span>
+      </p>
+    </footer>
+
+    <!-- ترتيب السكربتات: اللغات أولاً ثم البيانات ثم المنطق -->
+    <script src="lang/ar.js"></script>
+    <script src="lang/en.js"></script>
+    <script src="js/events-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,501 @@
+/* الخطوط العامة */
+body {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* الروابط */
+a {
+  transition: 0.3s;
+}
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* النافبار */
+.navbar {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.navbar-nav .nav-link.active {
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+}
+
+/*  الـ Hero Section (الصفحة الرئيسية) */
+.hero-btn {
+  background-color: #2045e7;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.hero-btn:hover {
+  background-color: #102bbf;
+  color: #fff;
+}
+
+/*  العناوين */
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: #222;
+}
+
+/*  البطاقات (فريق العمل + الأحداث) */
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* صور الفريق */
+.card img.rounded-circle {
+  border: 3px solid #ddd;
+  padding: 5px;
+}
+
+/*  أزرار التصنيفات */
+.category-btn {
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.category-btn:hover {
+  transform: scale(1.05);
+}
+
+.card img.rounded-circle {
+  border: 4px solid #f3e8ff;
+  padding: 6px;
+  transition: 0.3s;
+}
+.card img.rounded-circle:hover {
+  border-color: #2d22c2;
+}
+
+/*  النموذج (اتصل بنا) */
+form .form-control {
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+form .form-control:focus {
+  border-color: #2045e7;
+  box-shadow: 0 0 4px rgba(32,69,231,0.3);
+}
+button[type="submit"] {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #362dda;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+button[type="submit"]:hover {
+  background: #3d4be4;
+  transform: translateY(-2px);
+}
+
+/* الفوتر */
+footer {
+  background: #0d0832;
+  color: #eee;
+  padding: 40px 20px;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+}
+footer a {
+  color: #c084fc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+footer h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+}
+/* تبديل لغة الموقع */
+.language-switcher {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  display: flex;
+  gap: 10px;
+}
+/* ===== Dark Mode Styles ===== */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5 {
+  color: #ffffff;
+}
+
+body.dark-mode .navbar {
+  background-color: #2d2d2d !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link:hover,
+body.dark-mode .navbar-light .navbar-nav .nav-link.active {
+  color: #ffffff;
+  border-bottom-color: #2045e7;
+}
+
+body.dark-mode .card {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .form-control {
+  background-color: #3d3d3d;
+  border-color: #555;
+  color: #fff;
+}
+
+body.dark-mode .form-control:focus {
+  border-color: #6c8af5;
+  box-shadow: 0 0 4px rgba(108, 138, 245, 0.3);
+  background-color: #3d3d3d;
+  color: #fff;
+}
+
+body.dark-mode .text-muted {
+  color: #aaa !important;
+}
+
+body.dark-mode .alert {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+body.dark-mode .btn-outline-primary {
+  color: #6c8af5;
+  border-color: #6c8af5;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+  background-color: #6c8af5;
+  color: #fff;
+}
+
+body.dark-mode footer {
+  background: #0a0620;
+}
+
+/* زر Dark Mode */
+.dark-mode-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+body.dark-mode .dark-mode-btn {
+  background: #444;
+  color: #fff;
+  border-color: #666;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+}
+
+/* ——— الخيار الأنظف: أعطِ الـ<section> كلاس "hero" وشيل كل inline styles ——— */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 30px;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+.hero .hero-title {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.hero .hero-text {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+}
+.hero .hero-button {
+  background-color: #2045e7;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.hero .hero-button:hover {
+  background-color: #102bbf;
+}
+
+/* دارك مود للهيرو */
+body.dark-mode .hero {
+  background-color: #1f1f1f;
+}
+body.dark-mode .hero .hero-title {
+  color: #fff;
+}
+body.dark-mode .hero .hero-text {
+  color: #cfcfcf;
+}
+body.dark-mode .hero .hero-button {
+  background-color: #3d4be4;
+  color: #fff;
+}
+body.dark-mode .hero .hero-button:hover {
+  background-color: #6c8af5;
+}
+
+/* ——— في حال ما بدك تعدّل الـHTML الآن (نكسر الـinline) ——— */
+body.dark-mode section[style*="background-color: #f8f9fa"] {
+  background-color: #1f1f1f !important;
+}
+body.dark-mode section[style*="background-color: #f8f9fa"] .hero-title {
+  color: #fff !important;
+}
+body.dark-mode section[style*="background-color: #f8f9fa"] .hero-text {
+  color: #cfcfcf !important;
+}
+body.dark-mode section[style*="background-color: #f8f9fa"] .hero-button {
+  background-color: #3d4be4 !important;
+  color: #fff !important;
+}
+body.dark-mode section[style*="background-color: #f8f9fa"] .hero-button:hover {
+  background-color: #6c8af5 !important;
+}
+
+/* ====== بطاقات الفعاليات - Light Mode ====== */
+.card {
+  background: #ffffff;
+  color: #222;
+}
+
+/* العنوان والوصف */
+.card .card-title,
+.card h3.card-title {
+  color: #111;
+}
+.card .card-text,
+.card p {
+  color: #333;
+}
+
+/* حقل الميتا (Place / Date) إذا عندكهم كـ label/value */
+.card .event-meta .label {
+  color: #555;
+  font-weight: 600;
+}
+.card .event-meta .value {
+  color: #111;
+}
+
+/* عناصر Bootstrap اللي بتضلها فاتحة */
+.card .text-white,
+.card .text-light {
+  color: #111 !important;   /* رجّعها غامقة باللايت */
+}
+.card .text-muted {
+  color: #6c757d !important;
+}
+
+/* زر التفاصيل */
+.card .btn-primary {
+  background: #2045e7;
+  border-color: #2045e7;
+}
+.card .btn-primary:hover {
+  background: #102bbf;
+  border-color: #102bbf;
+}
+
+/* ====== بطاقات الفعاليات - Dark Mode ====== */
+body.dark-mode .card {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card .card-title,
+body.dark-mode .card h3.card-title {
+  color: #ffffff;
+}
+body.dark-mode .card .card-text,
+body.dark-mode .card p {
+  color: #d8d8d8;
+}
+body.dark-mode .card .event-meta .label {
+  color: #c8c8c8;
+}
+body.dark-mode .card .event-meta .value {
+  color: #ffffff;
+}
+
+/* رجّع الأبيض بالعناصر الفاتحة ضمن الدارك */
+body.dark-mode .card .text-white,
+body.dark-mode .card .text-light {
+  color: #ffffff !important;
+}
+body.dark-mode .card .text-muted {
+  color: #aaa !important;
+}
+
+/* زر التفاصيل في الدارك مود */
+body.dark-mode .card .btn-primary {
+  background: #3d4be4;
+  border-color: #3d4be4;
+}
+body.dark-mode .card .btn-primary:hover {
+  background: #6c8af5;
+  border-color: #6c8af5;
+}
+/* شارة التصنيف المشتركة */
+.event-category,
+.card .badge.event-category {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #fff !important;           /* تظل واضحة بالوضعين */
+}
+
+/* ألوان ثابتة لكل تصنيف (كلاسات رح نضيفها بالـJS) */
+.event-category.cat-music      { background: #0d6efd !important; }   /* موسيقى */
+.event-category.cat-cinema     { background: #0dcaf0 !important; color:#000 !important; } /* سينما */
+.event-category.cat-culture    { background: #6c757d !important; }   /* ثقافة */
+.event-category.cat-education  { background: #198754 !important; }   /* تعليم */
+.event-category.cat-exhibit    { background: #6f42c1 !important; }   /* معارض */
+
+/* ما نكسّر الشارة بقواعد text-white القديمة */
+.card .badge.event-category.text-white { color:#fff !important; }
+body.dark-mode .card .badge.event-category.text-white { color:#fff !important; }
+
+/* إذا فيه شارات بدون كلاس event-category، التقط أول بادج فوق العنوان كحل مؤقت */
+.card .card-body > .badge:first-child { color:#fff !important; }
+
+/* قياس موحّد */
+#langToggle .flag { height: 30px; }
+
+/* أخفي الكل افتراضياً */
+#langToggle .flag { display: none; }
+
+/* إذا الصفحة بالعربي، بيّن علم الإنكليزي (اللغة الجاية) */
+html[lang="ar"] #langToggle .flag-en { display: inline-block; }
+
+/* إذا الصفحة بالإنكليزي، بيّن علم العربي */
+html[lang="en"] #langToggle .flag-ar { display: inline-block; }
+
+/* خلي صورة الفعالية دائرية داخل الشبكة */
+#eventsGrid .card > img:first-child,
+#eventsGrid .card .card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* نخليها مربعة */
+  object-fit: cover;      /* قص مركزي */
+  object-position: center;
+  border-radius: 50%;     /* دائرة */
+  overflow: hidden;
+  display: block;
+  border: 3px solid #f1f1f1;
+}
+body.dark-mode #eventsGrid .card > img:first-child,
+body.dark-mode #eventsGrid .card .card-img-top {
+  border-color: #3a3a3a;
+}
+
+/* ===== صور الكروت دائرية في الصفحة الرئيسية ===== */
+#thisWeek .card > img:first-child,
+#thisWeek .card .card-img-top,
+#upcoming .card > img:first-child,
+#upcoming .card .card-img-top,
+#categories .card > img:first-child,
+#categories .card .card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* نخليها مربعة أولاً */
+  object-fit: cover;         /* قص مركزي حلو */
+  object-position: center;
+  border-radius: 50%;        /* دائرة */
+  overflow: hidden;
+  display: block;
+  border: 3px solid #f1f1f1; /* حافة خفيفة باللايت */
+}
+
+/* لون الحافة بالدارك مود */
+body.dark-mode #thisWeek .card > img:first-child,
+body.dark-mode #thisWeek .card .card-img-top,
+body.dark-mode #upcoming .card > img:first-child,
+body.dark-mode #upcoming .card .card-img-top,
+body.dark-mode #categories .card > img:first-child,
+body.dark-mode #categories .card .card-img-top {
+  border-color: #3a3a3a;
+}
+/* صور كروت "فعاليات ذات صلة" دائرية */
+#relatedEvents .card > img:first-child,
+#relatedEvents .card .card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* نخليها مربعة أولاً */
+  object-fit: cover;        /* قص مركزي نظيف */
+  object-position: center;
+  border-radius: 50%;       /* دائرة */
+  overflow: hidden;
+  display: block;
+  border: 3px solid #f1f1f1;
+}
+
+body.dark-mode #relatedEvents .card > img:first-child,
+body.dark-mode #relatedEvents .card .card-img-top {
+  border-color: #3a3a3a;
+}
